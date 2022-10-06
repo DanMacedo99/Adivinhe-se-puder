@@ -1,6 +1,14 @@
 
 def da_boas_vindas
-    puts "Bem vindo ao jogo da adivinhação"
+    puts
+    puts "        P  /_\\  P                              "
+    puts "       /_\\_|_|_/_\\                             "
+    puts "   n_n | ||. .|| | n_n         Bem vindo ao    "
+    puts "   |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação!"
+    puts "  |' '  |  |_|  |'  ' |                        "
+    puts "  |_____| ' _ ' |_____|                        " 
+    puts "        \\__|_|__/                              "
+    puts
     puts "Qual é o seu nome?"
     nome = gets.strip
     puts "\n\n\n\n\n\n"
@@ -46,8 +54,7 @@ end
 def verifica_se_acertou(numero_secreto, chute)
     acertou = numero_secreto == chute
     if acertou
-        puts "Acertou!"
-        puts "O numero que eu tava pensando era #{numero_secreto}"
+       ganhou
         return true
     end
     maior = numero_secreto > chute
@@ -72,20 +79,39 @@ def joga(nome, dificuldade)
         chute = pede_um_numero chutes, tentativa, limite_de_tentativas
         chutes << chute
         if nome == "Danilo"
-            puts "Acertou #{nome}!"
-            break
+            ganhou
+            break   
         end
-
         pontos_a_perder = (chute - numero_secreto).abs / 2.0
         pontos_ate_agora = pontos_ate_agora - pontos_a_perder
         if verifica_se_acertou numero_secreto, chute
             break
         end
     end
-    puts "\n\n"
-    puts "estava pensando no #{numero_secreto}"
-    puts "\n\n"    
-    puts "Você ganhou #{pontos_ate_agora} pontos."
+        puts "\n\n"    
+        puts "Você ganhou #{pontos_ate_agora} pontos."
+end
+
+def ganhou
+    puts
+    puts "             OOOOOOOOOOO               "
+    puts "         OOOOOOOOOOOOOOOOOOO           "
+    puts "      OOOOOO  OOOOOOOOO  OOOOOO        "
+    puts "    OOOOOO      OOOOO      OOOOOO      "
+    puts "   OOOOOOO      OOOOO      OOOOOOO     "
+    puts "  OOOOOOOOO    OOOOOOO    OOOOOOOOO    "
+    puts " OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO   "
+    puts " OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO   "
+    puts " OOO    OOOOOOOOOOOOOOOOOOOOO    OOO   "
+    puts " OOOO   OOOOOOOOOOOOOOOOOOOOO   OOOO   "
+    puts "  OOOO   OOOOOOOOOOOOOOOOOOO   OOOO    "
+    puts "    OOOO    OOOOOOOOOOOOO     OOOO     "
+    puts "     OOOOO                 OOOOO       "
+    puts "        OOOOOO         OOOOOO          "
+    puts "           OOOOOOOOOOOOOOO             "
+    puts
+    puts "               Acertou!                "
+    puts
 end
 
 def nao_quer_jogar?
